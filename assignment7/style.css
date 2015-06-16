@@ -1,0 +1,46 @@
+.table {
+  display: table;
+}
+
+.title {
+  display: table-caption;
+  text-align: center;
+  font-weight: bold;
+  font-size: larger;
+}
+
+.row.header {
+  font-weight: bold;
+  text-align: center;
+  background-color: sienna;
+  color: white;
+}
+
+.row {
+  display: table-row;
+}
+
+.cell {
+  display: table-cell;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  border: 1px solid brown;
+  text-align: right;
+  width: 100px;
+  vertical-align: middle;
+}
+
+.cell.storeID {
+  width: 15px;
+}
+
+.highlight {
+  background: red;
+}
+
+.txtBox, .txtBoxValue {
+  width: 25px;
+  float: left;
+}

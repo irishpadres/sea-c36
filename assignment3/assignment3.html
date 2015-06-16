@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Assignment 3</title>
+  </head>
+  <body>
+    Here's your donut count!
+    <table border=1>
+      <tr>
+        <th>Store Name</th>
+        <th>Hours of Operation</th>
+        <th>Customers per hour</th>
+        <th>Donuts per Hour</th>
+        <th>Donuts per Day</th>
+      </tr>
+      <script>
+        function newStore(name, minCust, maxCust, aveDonuts, hoursOfOp) {
+          this.locName = name;
+          this.minCust = minCust;
+          this.maxCust = maxCust;
+          this.aveDonutsPerCust = aveDonuts;
+          this.hoursPerDay = hoursOfOp;
+          this.custPerHour = Math.round(
+              Math.random() * (maxCust - minCust) + minCust);
+          this.donutsPerDay = Math.round(
+              this.hoursPerDay * this.custPerHour * this.aveDonutsPerCust);
+          this.donutsPerHour = Math.round(this.donutsPerDay / this.hoursPerDay);
+        }
+
+        var downtownObj = new newStore("Downtown", 8, 43, 4.50, 8);
+        var caphillObj = new newStore("Capital Hill", 4, 37, 2.00, 10);
+        var sluObj = new newStore("South Lake Union", 9, 23, 6.33, 12);
+        var wedgewoodObj = new newStore("Wedgewood", 2, 28, 1.25, 10);
+        var ballardObj = new newStore("Ballard", 8, 58, 3.75, 12);
+
+        var stores =
+            [downtownObj, caphillObj, sluObj, wedgewoodObj, ballardObj];
+
+        for (var i = 0; i < stores.length; i++) {
+          console.log(stores[i]);
+          document.write("<tr>");
+          document.write("<td>" + stores[i].locName + "</td>");
+          document.write("<td>" + stores[i].hoursPerDay + "</td>");
+          document.write("<td>" + stores[i].custPerHour + "</td>");
+          document.write("<td>" + stores[i].donutsPerHour + "</td>");
+          document.write("<td>" + stores[i].donutsPerDay + "</td>");
+          document.write("</tr>");
+        }
+      </script>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+.header {
+  font-weight: bold;
+}
+
+.data {
+  font-style: italic;
+}
+
+table, td, th {
+  border: 1px solid brown;
+}
+
+th {
+  background-color: sienna;
+  color: white;
+}

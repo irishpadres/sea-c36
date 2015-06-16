@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>The Guessing Game!</title>
+		<style type="text/css">
+			body {
+				margin: 0px;
+			}
+			header {
+				height: 30px;
+			}
+			footer {
+				clear: both;
+				height: 30px;
+			}
+			section {
+				float: left;
+				width: 659px;
+			}
+			aside {
+				width: 230px;
+				float: left;
+				padding: 0px 0px 0px 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="page">
+			<header>
+				Welcome to Kevin's Guessing Game
+			</header>
+			<section>
+				<h1>Let's Play!</h1>
+				I'm going to guess how old you are.<p>
+				<button onclick="startGame()">Click to start game!</button>
+				<p id="answer"></p>
+				<script>
+					var guessFunc = function(prevGuess) {
+						if (prevGuess <= 0) {
+							prevGuess = 1;
+						}
+						var response = prompt("My guess is " + prevGuess + " years old. Am I high, low, or correct?")
+						if (response === "high") {
+							guessFunc(prevGuess - Math.floor((Math.random() * 10) + 1));
+						} else if (response === "low") {
+							guessFunc(prevGuess + Math.floor((Math.random() * 10) + 1));
+						} else if (response === "correct") {
+							document.getElementById("answer").innerHTML = ("You are " + prevGuess + " years old!");
+						} else if (response === null) {
+							document.getElementById("answer").innerHTML = "Gave up?";
+						} else {
+							guessFunc(prevGuess);
+						}
+					}
+
+					var startGame = function() {
+						var firstGuess = Math.floor((Math.random() * 10) + 40)
+						guessFunc(firstGuess);
+					}
+				</script>
+			</section>
+			<aside>
+				<p>I'm Kevin O'Brien and this is my playground as I learn more about HTML5, CSS, and JS</p>
+				<p>I grew up in a Navy family and moved around quite a bit. I attended schools in 2 states and one foreign country.</p>
+				<p>Once I graduated high school, I attended and graduated from the University of California, San Diego with a degree in Chemistry. The plan was to become a forensic scientist however I decided to go a different direction.</p>
+				<p>Once I graduated, I used my love of computers to become a help desk technician at E! Entertainment Television.  While working there, I learn system administration and UNIX.  Over time, I worked my way up and now manage a team of engineers at Amazon.</p>
+			</aside>
+			<footer>
+				Copyright &copy; 2015 Kevin O'Brien
+			</footer>
+		</div>
+	</body>
+</html>
